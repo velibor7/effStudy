@@ -1,16 +1,27 @@
 .container
     display: flex
     align-items: center
+    height: 100%
+    width: 100%
 .card
     display: flex
     flex-direction: column
     background-color: #fff
     align-items: center
     width: 40%
-    height: 70%
+    height: 90%
     margin: 2em
     border: 0 solid black
     border-radius: 5px
+    .no-cyc
+        display: flex
+        padding: 0px
+
+        input
+            height: auto
+            width: auto
+        p
+            padding: 0px
 
 .timer-class
     font-family: 'Marvel'
@@ -22,3 +33,11 @@
     color: white
     border: 0 solid black
     border-radius: 4px
+    cursor: pointer
+
+.timer
+    margin: 0
+    padding: 0 .7em
+    font-size: 6em
+    p
+        margin: 0
