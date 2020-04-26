@@ -1,14 +1,14 @@
 <div class="container">
-  <div class="timer-class card">
+  <div class="timer-card card">
     <div class="choose-timer">
       <button class="timer25 button">25 - 5</button>
       <button class="timer50 button">50 - 10</button>
     </div>
-    
+
     <div>
       <div class="no-cyc">
         <p>no. of cycles:</p>
-        <input type="number" step="1" min="1" />
+        <input type="number" step="1" min="1" value="1"/>
       </div>
       <p>you'll do total: <span>XX</span> hours of work!</p>
     </div>
@@ -24,38 +24,11 @@
     <p>cycle no. <span>X</span></p>
   </div>
 
-  <div class="checklist-class card">
-    <div class="choose-timer">
-      <button class="timer25">25 - 5</button>
-      <button class="timer50">50 - 10</button>
+  <div class="checklist-card card">
+    <div class="checklist-elem">
+        <input type="checkbox" id="todo" name="todo" value="todo" />
+        <label for="todo" data-content="Get out of bed">Get out of bed</label>
     </div>
-    <div>
-      <p>no. of cycles:</p>
-      <select name="myDropDown">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-      </select>
-      <p>you'll do total: <span>XX</span> hours of work!</p>
-    </div>
-
-    <div class="timer">
-      <p>04:20</p>
-    </div>
-
-    <div class="go-buttons">
-      <button class="start">START</button>
-      <button class="pause">PAUSE</button>
-    </div>
-    <p>cycle no. <span>X</span></p>
+    <input class="checklist-input" type="text" placeholder="What do you need to get done?">
   </div>
 </div>
