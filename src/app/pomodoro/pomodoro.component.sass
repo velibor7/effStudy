@@ -7,6 +7,7 @@ $primary: #7900b1
     height: 100%
     width: 100%
     .card
+        box-shadow: .2em .2em .4em black
         display: flex
         flex-direction: column
         background-color: #fff
@@ -16,18 +17,20 @@ $primary: #7900b1
         margin: 2em
         border: 0 solid black
         border-radius: 5px
-        .no-cyc
-            display: flex
-            padding: 0px
-
-            input
-                height: auto
-                width: auto
-            p
-                padding: 0px
 
 .timer-card
     font-family: 'Marvel', sans-serif
+    justify-content: space-between
+    .cyc-num
+        align-items: center
+        display: flex
+        padding: 0px
+        p
+            padding: 0px
+            margin: 0px
+        input
+            height: 1.7em
+            width: 2.3em
     .timer
         margin: 0
         padding: 0 .7em
@@ -43,6 +46,7 @@ $primary: #7900b1
         float: left
         left: 0
     .checklist-input
+        -webkit-tap-highlight-color: transparent
         font-size: 1.2em
         position: absolute
         bottom: 0
@@ -52,6 +56,8 @@ $primary: #7900b1
         margin: .4em .1em .1em .1em
         // padding: .3em
         font-family: 'Marvel', sans-serif
+        &:focus
+            outline: none
 
 .button
     padding: .7em
