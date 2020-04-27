@@ -128,3 +128,13 @@ $primary: #7900b1;
     }
   }
 }
+
+.button {
+  padding: 0.7em;
+  margin: 0.31em;
+  background-color: $primary;
+  color: white;
+  border: 0 solid black;
+  border-radius: 4px;
+  cursor: pointer;
+}
