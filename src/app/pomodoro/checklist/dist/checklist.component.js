@@ -17,7 +17,11 @@ var ChecklistComponent = /** @class */ (function () {
     ChecklistComponent.prototype.onDelete = function () { };
     ChecklistComponent.prototype.onAddTask = function () {
         this.tasks.push({ name: this.newTaskName });
+        this.searchInput.nativeElement.value = "";
     };
+    __decorate([
+        core_1.ViewChild("searchInput")
+    ], ChecklistComponent.prototype, "searchInput");
     ChecklistComponent = __decorate([
         core_1.Component({
             selector: "app-checklist",

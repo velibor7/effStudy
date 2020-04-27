@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 
 @Component({
   selector: "app-checklist",
@@ -6,6 +6,8 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./checklist.component.scss"],
 })
 export class ChecklistComponent implements OnInit {
+  @ViewChild("searchInput") searchInput: ElementRef;
+
   tasks = [];
   newTaskName = "";
 
@@ -19,5 +21,6 @@ export class ChecklistComponent implements OnInit {
 
   onAddTask() {
     this.tasks.push({ name: this.newTaskName });
+    this.searchInput.nativeElement.value = "";
   }
 }

@@ -64,7 +64,8 @@ $primary: #7900b1;
     }
   }
 }
-
+//! need to implement custom checkboxes
+/*
 .check {
   cursor: pointer;
   position: relative;
@@ -75,7 +76,7 @@ $primary: #7900b1;
   transform: translate3d(0, 0, 0);
   &:before {
     content: "";
-    position: absolute;
+    // position: absolute;
     top: -15px;
     left: -15px;
     width: 48px;
@@ -128,6 +129,7 @@ $primary: #7900b1;
     }
   }
 }
+*/
 
 .button {
   padding: 0.7em;

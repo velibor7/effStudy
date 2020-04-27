@@ -1,7 +1,9 @@
 <div class="checklist-card card">
   <div *ngFor="let task of tasks" class="checklist-elem">
     <div class="task">
-      <input type="checkbox" id="cbx" style="display: none;" />
+      <input type="checkbox" >
+      <label for="cbx"> {{ task.name }}</label>
+      <!--<input type="checkbox" id="cbx" style="display: none;" />
       <label for="cbx" class="check">
         <svg width="18px" height="18px" viewBox="0 0 18 18">
           <path
@@ -9,7 +11,7 @@
           ></path>
           <polyline points="1 9 7 14 15 4"></polyline>
         </svg> {{ task.name }}
-      </label>
+      </label> -->
     </div>
     <div class="options">
       <img src="../../assets/icons/create.svg" alt="" (click)="onEdit()" />
@@ -22,6 +24,7 @@
       class="checklist-input"
       type="text"
       placeholder="What do you need to get done?"
+      #searchInput
       required
     />
     <button class="button" type="submit" (click)="onAddTask()">Add</button>
