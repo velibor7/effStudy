@@ -1,0 +1,26 @@
+<div class="checklist-card card">
+<div class="checklist-elem">
+  <div class="task">
+    <input type="checkbox" id="todo" name="todo" value="todo" />
+    <label for="todo" data-content="Get out of bed">Get out of bed</label>
+  </div>
+  <div class="options">
+    <img
+      src="../../assets/icons/create.svg"
+      alt=""
+      (click)="onEditChecklistElem()"
+    />
+    <img
+      src="../../assets/icons/clear.svg"
+      alt=""
+      (click)="onDeleteChecklistElem()"
+    />
+  </div>
+</div>
+<input
+  class="checklist-input"
+  type="text"
+  placeholder="What do you need to get done?"
+/>
+<button (click)="onAddTask()">Add</button>
+</div>

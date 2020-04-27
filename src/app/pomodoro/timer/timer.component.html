@@ -1,0 +1,24 @@
+<div class="timer-card card">
+  <div class="choose-timer">
+    <button class="timer25 button" (click)="set25()">25 - 5</button>
+    <button class="timer50 button" (click)="set50()">50 - 10</button>
+  </div>
+
+  <div>
+    <div class="cyc-num">
+      <p>no. of cycles:</p>
+      <input type="number" step="1" min="1" max="10" value="1" />
+    </div>
+    <p>you'll do total: <span>XX</span> hours and <span>XX</span> of work!</p>
+  </div>
+
+  <div class="timer">
+    <p>04:20</p>
+  </div>
+
+  <div class="go-buttons">
+    <button class="start button" (click)="onStart()">START</button>
+    <button class="pause button" (click)="onPause()">PAUSE</button>
+  </div>
+  <p>cycle no. <span>X</span></p>
+</div>
