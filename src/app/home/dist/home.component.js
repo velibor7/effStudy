@@ -11,6 +11,8 @@ var HomeComponent = /** @class */ (function () {
     function HomeComponent() {
     }
     HomeComponent.prototype.ngOnInit = function () { };
+    HomeComponent.prototype.onLogin = function () { };
+    HomeComponent.prototype.onRegister = function () { };
     HomeComponent = __decorate([
         core_1.Component({
             selector: "app-home",

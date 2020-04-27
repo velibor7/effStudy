@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Marvel&family=Shadows+Into+Light&display=swap");
+.container {
+  font-family: "Marvel", sans-serif;
+  text-align: center;
+}
+
+.container a {
+  text-decoration: none;
+}
+
+.button {
+  padding: 0.7em;
+  margin: 0.31em;
+  background-color: #7900b1;
+  color: white;
+  border: 0 solid black;
+  border-radius: 4px;
+  cursor: pointer;
+}
