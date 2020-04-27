@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Marvel&family=Shadows+Into+Light&display=swap");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+// ! copied from https://freefrontend.com/css-checkboxes/
+
+$black: #363839;
+$lightgray: #9c9e9f;
+$gray: #bdc1c6;
+$white: #fff;
+$primary: #7900b1;
+
+.card {
+  box-shadow: 0.2em 0.2em 0.4em black;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  align-items: center;
+  width: 400px; //! THIS SHIT ISNT WORKING AS IT SHOULD FFS;
+  height: 60vh;
+  margin: 1em 1em;
+  border: 0 solid black;
+  border-radius: 5px;
+}
+
+.checklist-card {
+  font-family: "Marvel", sans-serif;
+  position: relative;
+  .checklist-elem {
+    width: 100%;
+    display: flex;
+    float: left;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0.3em 0.4em 0.1em 0.4em;
+    &:hover {
+      background-color: $gray;
+    }
+    img {
+      cursor: pointer;
+    }
+  }
+  .add-task {
+    width: 98%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    bottom: 0;
+    margin: 0.4em 0.1em 0.1em 0.1em;
+    .checklist-input {
+      -webkit-tap-highlight-color: transparent;
+      font-size: 1.2em;
+      width: 90%;
+      height: 1.6em;
+      border: 0 solid black;
+      font-family: "Marvel", sans-serif;
+      &:focus {
+        outline: none;
+      }
+    }
+    button {
+      cursor: pointer;
+      float: right;
+    }
+  }
+}
+
+.check {
+  cursor: pointer;
+  position: relative;
+  margin: auto;
+  width: 18px;
+  height: 18px;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate3d(0, 0, 0);
+  &:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(#223254, 0.03);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  svg {
+    position: relative;
+    z-index: 1;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #c8ccd4;
+    stroke-width: 1.5;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.2s ease;
+    path {
+      stroke-dasharray: 60;
+      stroke-dashoffset: 0;
+    }
+    polyline {
+      stroke-dasharray: 22;
+      stroke-dashoffset: 66;
+    }
+  }
+  &:hover {
+    &:before {
+      opacity: 1;
+    }
+    svg {
+      stroke: #4285f4;
+    }
+  }
+}
+
+#cbx:checked + .check {
+  svg {
+    stroke: #4285f4;
+    path {
+      stroke-dashoffset: 60;
+      transition: all 0.3s linear;
+    }
+    polyline {
+      stroke-dashoffset: 42;
+      transition: all 0.2s linear;
+      transition-delay: 0.15s;
+    }
+  }
+}

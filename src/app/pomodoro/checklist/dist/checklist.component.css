@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Marvel&family=Shadows+Into+Light&display=swap");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+.card {
+  box-shadow: 0.2em 0.2em 0.4em black;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  align-items: center;
+  width: 400px;
+  height: 60vh;
+  margin: 1em 1em;
+  border: 0 solid black;
+  border-radius: 5px;
+}
+
+.checklist-card {
+  font-family: "Marvel", sans-serif;
+  position: relative;
+}
+
+.checklist-card .checklist-elem {
+  width: 100%;
+  display: flex;
+  float: left;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0.3em 0.4em 0.1em 0.4em;
+}
+
+.checklist-card .checklist-elem:hover {
+  background-color: #bdc1c6;
+}
+
+.checklist-card .checklist-elem img {
+  cursor: pointer;
+}
+
+.checklist-card .add-task {
+  width: 98%;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  bottom: 0;
+  margin: 0.4em 0.1em 0.1em 0.1em;
+}
+
+.checklist-card .add-task .checklist-input {
+  -webkit-tap-highlight-color: transparent;
+  font-size: 1.2em;
+  width: 90%;
+  height: 1.6em;
+  border: 0 solid black;
+  font-family: "Marvel", sans-serif;
+}
+
+.checklist-card .add-task .checklist-input:focus {
+  outline: none;
+}
+
+.checklist-card .add-task button {
+  cursor: pointer;
+  float: right;
+}
+
+.check {
+  cursor: pointer;
+  position: relative;
+  margin: auto;
+  width: 18px;
+  height: 18px;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate3d(0, 0, 0);
+}
+
+.check:before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(34, 50, 84, 0.03);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.check svg {
+  position: relative;
+  z-index: 1;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #c8ccd4;
+  stroke-width: 1.5;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s ease;
+}
+
+.check svg path {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 0;
+}
+
+.check svg polyline {
+  stroke-dasharray: 22;
+  stroke-dashoffset: 66;
+}
+
+.check:hover:before {
+  opacity: 1;
+}
+
+.check:hover svg {
+  stroke: #4285f4;
+}
+
+#cbx:checked + .check svg {
+  stroke: #4285f4;
+}
+
+#cbx:checked + .check svg path {
+  stroke-dashoffset: 60;
+  transition: all 0.3s linear;
+}
+
+#cbx:checked + .check svg polyline {
+  stroke-dashoffset: 42;
+  transition: all 0.2s linear;
+  transition-delay: 0.15s;
+}

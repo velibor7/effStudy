@@ -1,0 +1,53 @@
+.card {
+  box-shadow: 0.2em 0.2em 0.4em black;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  align-items: center;
+  width: auto;
+  height: 60vh;
+  margin: 1em 1em;
+  border: 0 solid black;
+  border-radius: 5px;
+}
+
+.timer-card {
+  font-family: "Marvel", sans-serif;
+  justify-content: space-between;
+}
+
+.timer-card .cyc-num {
+  align-items: center;
+  display: flex;
+  padding: 0px;
+}
+
+.timer-card .cyc-num p {
+  padding: 0px;
+  margin: 0px;
+}
+
+.timer-card .cyc-num input {
+  height: 1.7em;
+  width: 2.3em;
+}
+
+.timer-card .timer {
+  margin: 0;
+  padding: 0 0.7em;
+  font-size: 6em;
+}
+
+.timer-card .timer p {
+  margin: 0;
+}
+
+.button {
+  padding: 0.7em;
+  margin: 0.31em;
+  background-color: #7900b1;
+  color: white;
+  border: 0 solid black;
+  border-radius: 4px;
+  cursor: pointer;
+}
