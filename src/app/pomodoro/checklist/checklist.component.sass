@@ -6,7 +6,6 @@ $black: #363839
 $lightgray: #9c9e9f
 $gray: #bdc1c6
 $white: #fff
-$green: #06842c
 $primary: #7900b1
 
 .card
@@ -15,9 +14,9 @@ $primary: #7900b1
     flex-direction: column
     background-color: #fff
     align-items: center
-    width: 80%
+    width: 400px //! THIS SHIT ISNT WORKING AS IT SHOULD FFS
     height: 60vh
-    margin: 5em
+    margin: 1em 1em
     border: 0 solid black
     border-radius: 5px
 
@@ -33,20 +32,29 @@ $primary: #7900b1
         align-items: center
         text-align: center
         margin: .3em .4em .1em .4em
-
-    .checklist-input
-        -webkit-tap-highlight-color: transparent
-        font-size: 1.2em
-        position: absolute
-        bottom: 0
+        &:hover
+            background-color: $gray
+        img
+            cursor: pointer
+    .add-task
         width: 98%
-        height: 1.6em
-        border: 0 solid black
+        position: absolute
+        display: flex
+        flex-direction: row
+        bottom: 0
         margin: .4em .1em .1em .1em
-        // padding: .3em
-        font-family: 'Marvel', sans-serif
-        &:focus
-            outline: none
+        .checklist-input
+            -webkit-tap-highlight-color: transparent
+            font-size: 1.2em
+            width: 90%
+            height: 1.6em
+            border: 0 solid black
+            font-family: 'Marvel', sans-serif
+            &:focus
+                outline: none
+        button
+            cursor: pointer
+            float: right
 
 input[type="checkbox"]
     position: relative
@@ -92,7 +100,7 @@ label
     user-select: none
     &::before
         position: absolute
-        content: attr(data-content)
+        content: ''
         color: $lightgray
         clip-path: polygon(0 0, 0 0, 0% 100%, 0 100%)
         text-decoration: line-through

@@ -1,26 +1,29 @@
 <div class="checklist-card card">
-<div class="checklist-elem">
-  <div class="task">
-    <input type="checkbox" id="todo" name="todo" value="todo" />
-    <label for="todo" data-content="Get out of bed">Get out of bed</label>
+  <div *ngFor="let task of tasks" class="checklist-elem">
+    <div class="task">
+      <input type="checkbox" id="todo" name="todo" value="todo" />
+      <label for="todo" data-content="Get out of bed">{{task.name}}</label>
+    </div>
+    <div class="options">
+      <img
+        src="../../assets/icons/create.svg"
+        alt=""
+        (click)="onEdit()"
+      />
+      <img
+        src="../../assets/icons/clear.svg"
+        alt=""
+        (click)="onDelete()"
+      />
+    </div>
   </div>
-  <div class="options">
-    <img
-      src="../../assets/icons/create.svg"
-      alt=""
-      (click)="onEditChecklistElem()"
+  <div class="add-task">
+    <input
+    [(ngModel)]="newTaskName"
+      class="checklist-input"
+      type="text"
+      placeholder="What do you need to get done?"
     />
-    <img
-      src="../../assets/icons/clear.svg"
-      alt=""
-      (click)="onDeleteChecklistElem()"
-    />
+    <button type="submit" (click)="onAddTask()">Add</button>
   </div>
-</div>
-<input
-  class="checklist-input"
-  type="text"
-  placeholder="What do you need to get done?"
-/>
-<button (click)="onAddTask()">Add</button>
 </div>

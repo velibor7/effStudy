@@ -6,15 +6,18 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./checklist.component.sass"],
 })
 export class ChecklistComponent implements OnInit {
-  newTaskName: string = "";
+  tasks = [];
+  newTaskName = "";
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  onEditChecklistElem() {}
+  onEdit() {}
 
-  onDeleteChecklistElem() {}
+  onDelete() {}
 
-  onAddTask() {}
+  onAddTask() {
+    this.tasks.push({ name: this.newTaskName });
+  }
 }
