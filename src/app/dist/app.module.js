@@ -18,6 +18,7 @@ var timer_component_1 = require("./pomodoro/timer/timer.component");
 var login_component_1 = require("./auth/login/login.component");
 var register_component_1 = require("./auth/register/register.component");
 var forgot_component_1 = require("./auth/forgot/forgot.component");
+var http_1 = require("@angular/common/http");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -33,7 +34,13 @@ var AppModule = /** @class */ (function () {
                 register_component_1.RegisterComponent,
                 forgot_component_1.ForgotComponent,
             ],
-            imports: [platform_browser_1.BrowserModule, app_routing_module_1.AppRoutingModule, forms_1.FormsModule],
+            imports: [
+                platform_browser_1.BrowserModule,
+                app_routing_module_1.AppRoutingModule,
+                forms_1.FormsModule,
+                forms_1.ReactiveFormsModule,
+                http_1.HttpClientModule,
+            ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]
         })

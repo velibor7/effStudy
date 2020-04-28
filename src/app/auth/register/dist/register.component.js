@@ -8,9 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 var core_1 = require("@angular/core");
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent() {
+    function RegisterComponent(authService) {
+        this.authService = authService;
     }
     RegisterComponent.prototype.ngOnInit = function () { };
+    RegisterComponent.prototype.onRegister = function (form) {
+        if (form.invalid) {
+            console.log("form is invalid!");
+            return;
+        }
+        this.authService.createUser(form.value.username, form.value.email, form.value.password);
+    };
     RegisterComponent = __decorate([
         core_1.Component({
             selector: "app-register",
