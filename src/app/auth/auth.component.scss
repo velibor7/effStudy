@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Marvel&family=Shadows+Into+Light&display=swap");
 $primary: #7900b1;
 
-.login-page {
+.auth-card {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
@@ -55,9 +55,7 @@ $primary: #7900b1;
   color: $primary;
   text-decoration: none;
 }
-.form .register-form {
-  display: none;
-}
+
 .container {
   position: relative;
   z-index: 1;
