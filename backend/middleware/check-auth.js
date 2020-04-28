@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
     req.userData = {
       // fullName: req.body.fullName,
       // occupation: req.body.occupation,
-      email: decodedToken.email,
+      username: decodedToken.username,
       userId: decodedToken.userId,
     };
     // console.log;

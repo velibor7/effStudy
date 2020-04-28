@@ -36,7 +36,7 @@ router.post("/register", function (req, res, next) {
 router.post("/login", function (req, res, next) {
   var fetchedUser;
   User.findOne({
-    email: req.body.email
+    username: req.body.username
   }).then(function (user) {
     if (!user) {
       return res.status(401).json({
@@ -54,7 +54,7 @@ router.post("/login", function (req, res, next) {
     }
 
     var token = jwt.sign({
-      email: fetchedUser.email,
+      username: fetchedUser.username,
       userId: fetchedUser._id
     }, "secret_hehe", {
       expiresIn: "1h"

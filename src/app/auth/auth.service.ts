@@ -119,6 +119,7 @@ export class AuthService {
     clearTimeout(this.tokenTimer);
     this.clearAuthData();
     console.log("token cleared!");
+    console.log("u r logged out!");
     this.router.navigate(["/"]);
   }
 }

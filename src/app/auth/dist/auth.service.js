@@ -105,6 +105,7 @@ var AuthService = /** @class */ (function () {
         clearTimeout(this.tokenTimer);
         this.clearAuthData();
         console.log("token cleared!");
+        console.log("u r logged out!");
         this.router.navigate(["/"]);
     };
     AuthService = __decorate([
