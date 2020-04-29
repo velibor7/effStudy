@@ -36,34 +36,34 @@ export class TimerComponent implements OnInit {
   onStart(noOfCyc: number) {
     this.noOfCycles = noOfCyc;
     console.log(this.noOfCycles);
-    // if (this.noOfCycles > 0) {
     while (this.noOfCycles > 0) {
-      //* work timer
-      this.workInterval = setInterval(() => {
-        if (this.timeLeft > 0) {
-          this.minutesLeft = Math.floor(this.timeLeft / 60);
-          this.secondsLeft = this.timeLeft % 60;
-          this.timeLeft--;
-        } else {
-          //! ????
-          //* pause timer
-          this.timeLeft = 0;
-          clearInterval(this.workInterval);
-          this.pauseInterval = setInterval(() => {
-            if (this.pauseLeft > 0) {
-              this.minutesLeft = Math.floor(this.pauseLeft / 60);
-              this.secondsLeft = this.pauseLeft % 60;
-              this.pauseLeft--;
-            } else {
-              //? kad je pauza istekla
-              clearInterval(this.pauseInterval);
-            }
-          }, 1000);
-        }
-      }, 1000);
-      this.noOfCycles--;
+      this.startTimer();
     }
-    //* pause timer
+  }
+
+  startTimer() {
+    this.workInterval = setInterval(() => {
+      if (this.timeLeft > 0) {
+        this.minutesLeft = Math.floor(this.timeLeft / 60);
+        this.secondsLeft = this.timeLeft % 60;
+        this.timeLeft--;
+      } else {
+        //! ????
+        //* pause timer
+        this.timeLeft = 0;
+        clearInterval(this.workInterval);
+        this.pauseInterval = setInterval(() => {
+          if (this.pauseLeft > 0) {
+            this.minutesLeft = Math.floor(this.pauseLeft / 60);
+            this.secondsLeft = this.pauseLeft % 60;
+            this.pauseLeft--;
+          } else {
+            //? kad je pauza istekla
+            clearInterval(this.pauseInterval);
+          }
+        }, 1000);
+      }
+    }, 1000);
   }
 
   onPause() {

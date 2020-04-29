@@ -28,39 +28,38 @@ var TimerComponent = /** @class */ (function () {
         this.timeLeft = 50 * 60;
     };
     TimerComponent.prototype.onStart = function (noOfCyc) {
-        var _this = this;
         this.noOfCycles = noOfCyc;
         console.log(this.noOfCycles);
-        // if (this.noOfCycles > 0) {
         while (this.noOfCycles > 0) {
-            //* work timer
-            this.workInterval = setInterval(function () {
-                if (_this.timeLeft > 0) {
-                    _this.minutesLeft = Math.floor(_this.timeLeft / 60);
-                    _this.secondsLeft = _this.timeLeft % 60;
-                    _this.timeLeft--;
-                }
-                else {
-                    //! ????
-                    //* pause timer
-                    _this.timeLeft = 0;
-                    clearInterval(_this.workInterval);
-                    _this.pauseInterval = setInterval(function () {
-                        if (_this.pauseLeft > 0) {
-                            _this.minutesLeft = Math.floor(_this.pauseLeft / 60);
-                            _this.secondsLeft = _this.pauseLeft % 60;
-                            _this.pauseLeft--;
-                        }
-                        else {
-                            //? kad je pauza istekla
-                            clearInterval(_this.pauseInterval);
-                        }
-                    }, 1000);
-                }
-            }, 1000);
-            this.noOfCycles--;
+            this.startTimer();
         }
-        //* pause timer
+    };
+    TimerComponent.prototype.startTimer = function () {
+        var _this = this;
+        this.workInterval = setInterval(function () {
+            if (_this.timeLeft > 0) {
+                _this.minutesLeft = Math.floor(_this.timeLeft / 60);
+                _this.secondsLeft = _this.timeLeft % 60;
+                _this.timeLeft--;
+            }
+            else {
+                //! ????
+                //* pause timer
+                _this.timeLeft = 0;
+                clearInterval(_this.workInterval);
+                _this.pauseInterval = setInterval(function () {
+                    if (_this.pauseLeft > 0) {
+                        _this.minutesLeft = Math.floor(_this.pauseLeft / 60);
+                        _this.secondsLeft = _this.pauseLeft % 60;
+                        _this.pauseLeft--;
+                    }
+                    else {
+                        //? kad je pauza istekla
+                        clearInterval(_this.pauseInterval);
+                    }
+                }, 1000);
+            }
+        }, 1000);
     };
     TimerComponent.prototype.onPause = function () {
         clearInterval(this.workInterval);
