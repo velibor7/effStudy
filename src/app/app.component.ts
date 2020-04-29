@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { AuthService } from "./auth/auth.service";
+import { ThrowStmt } from "@angular/compiler";
 
 @Component({
   selector: "app-root",
@@ -7,4 +9,9 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   title = "eff";
+  constructor(public authService: AuthService) {}
+
+  onLogout() {
+    this.authService.logout();
+  }
 }
