@@ -1,5 +1,7 @@
 <div class="timer-card card">
   <div class="choose-timer">
+    <!--! MAKE ONLY ONE BUTTON ACTIVE !! -->
+    <!--! FIX SIZING -->
     <button class="timer25 button" (click)="set25()">25 - 5</button>
     <button class="timer50 button" (click)="set50()">50 - 10</button>
   </div>
@@ -13,7 +15,7 @@
   </div>
 
   <div class="timer">
-    <p>04:20</p>
+    <p>{{ minutesLeft }} : {{secondsLeft}}</p>
   </div>
 
   <div class="go-buttons">

@@ -12,6 +12,11 @@ export class TimerComponent implements OnInit {
   totalHours: number = 0;
   totalMinutes: number = 0;
 
+  timeLeft: number = 91;
+  minutesLeft: number;
+  secondsLeft: number;
+  interval;
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -25,10 +30,18 @@ export class TimerComponent implements OnInit {
   }
 
   onStart() {
-    // start the timer
+    this.interval = setInterval(() => {
+      if (this.timeLeft > 0) {
+        this.minutesLeft = Math.floor(this.timeLeft / 60);
+        this.secondsLeft = this.timeLeft % 60;
+        this.timeLeft--;
+      } else {
+        this.timeLeft = 60;
+      }
+    }, 1000);
   }
 
   onPause() {
-    // pause the timer
+    clearInterval(this.interval);
   }
 }

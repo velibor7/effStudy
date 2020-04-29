@@ -14,6 +14,7 @@ var TimerComponent = /** @class */ (function () {
         this.pauseMinutes = 0;
         this.totalHours = 0;
         this.totalMinutes = 0;
+        this.timeLeft = 91;
     }
     TimerComponent.prototype.ngOnInit = function () { };
     TimerComponent.prototype.set25 = function () {
@@ -23,10 +24,20 @@ var TimerComponent = /** @class */ (function () {
         // set timer values for 50 - 10
     };
     TimerComponent.prototype.onStart = function () {
-        // start the timer
+        var _this = this;
+        this.interval = setInterval(function () {
+            if (_this.timeLeft > 0) {
+                _this.minutesLeft = Math.floor(_this.timeLeft / 60);
+                _this.secondsLeft = _this.timeLeft % 60;
+                _this.timeLeft--;
+            }
+            else {
+                _this.timeLeft = 60;
+            }
+        }, 1000);
     };
     TimerComponent.prototype.onPause = function () {
-        // pause the timer
+        clearInterval(this.interval);
     };
     TimerComponent = __decorate([
         core_1.Component({
