@@ -9,7 +9,7 @@
   <div>
     <div class="cyc-num">
       <p>no. of cycles:</p>
-      <input type="number" step="1" min="1" max="10" value="1" />
+      <input type="number" step="1" min="1" max="10" value="1" name="cycles" #cyclesInput />
     </div>
     <p>you'll do total: <span>XX</span> hours and <span>XX</span> of work!</p>
   </div>
@@ -19,8 +19,8 @@
   </div>
 
   <div class="go-buttons">
-    <button class="start button" (click)="onStart()">START</button>
+    <button class="start button" (click)="onStart(cyclesInput.value)">START</button>
     <button class="pause button" (click)="onPause()">PAUSE</button>
   </div>
-  <p>cycle no. <span>X</span></p>
+  <p>cycle no. <span> {{noOfCycles}}</span></p>
 </div>
