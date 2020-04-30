@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+// import { resolve } from "dns";
 
 @Component({
   selector: "app-timer",
@@ -6,16 +7,19 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./timer.component.scss"],
 })
 export class TimerComponent implements OnInit {
+  mode = "work";
   noOfCycles: number = 0;
   workMinutes: number = 0;
   pauseMinutes: number = 0;
   totalHours: number = 0;
   totalMinutes: number = 0;
 
+  buba;
   timeLeft: number = 1500;
+  workLeft: number;
   pauseLeft: number;
-  minutesLeft: number = 25;
-  secondsLeft: number = 0;
+  minutesLeft: number;
+  secondsLeft: number;
   workInterval;
   pauseInterval;
 
@@ -24,7 +28,10 @@ export class TimerComponent implements OnInit {
   ngOnInit(): void {}
 
   set25() {
-    this.timeLeft = 5;
+    //this.timeLeft = 5;O//
+    //! work minutes are in seconds
+    this.workMinutes = 5;
+    this.workLeft = 5;
     this.pauseLeft = 10;
     // this.timeLeft = 25 * 60;
   }
@@ -33,39 +40,85 @@ export class TimerComponent implements OnInit {
     this.timeLeft = 50 * 60;
   }
 
-  onStart(noOfCyc: number) {
+  /*
+    todo:
+   * pokrenemo tajmer na workLeft minuta
+   * nakon toga pokrenemo tajmer na pauseLeft minuta
+   * ponavljamo to dok je nocycLeft veci od 0
+   * stavimo tajmer na 00:00
+  */
+
+  //! if noOfCyc is 3, timer makes 3second steps
+  async onStart(noOfCyc: number) {
     this.noOfCycles = noOfCyc;
-    console.log(this.noOfCycles);
-    while (this.noOfCycles > 0) {
-      this.startTimer();
-    }
+    // console.log(this.noOfCycles);
+    await this.startWork().then(() => {
+      console.log("zuri8");
+    });
+    console.log("work is finished");
   }
 
-  startTimer() {
+  async startWork() {
     this.workInterval = setInterval(() => {
-      if (this.timeLeft > 0) {
-        this.minutesLeft = Math.floor(this.timeLeft / 60);
-        this.secondsLeft = this.timeLeft % 60;
-        this.timeLeft--;
+      this.mode = "work";
+      if (this.workLeft > 0) {
+        this.minutesLeft = Math.floor(this.workLeft / 60);
+        this.secondsLeft = this.workLeft % 60;
+        this.workLeft--;
       } else {
-        //! ????
-        //* pause timer
-        this.timeLeft = 0;
+        // timer is finished
+        console.log("dasas");
+        this.workLeft = 0;
+        this.minutesLeft = 0;
+        this.secondsLeft = 0;
         clearInterval(this.workInterval);
-        this.pauseInterval = setInterval(() => {
-          if (this.pauseLeft > 0) {
-            this.minutesLeft = Math.floor(this.pauseLeft / 60);
-            this.secondsLeft = this.pauseLeft % 60;
-            this.pauseLeft--;
+      }
+    }, 1000);
+    // console.log("kada se ovo izvrsava?!");
+  }
+
+  /*
+  async startWork() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this.workInterval = setInterval(() => {
+          this.mode = "work";
+          if (this.workLeft > 0) {
+            this.minutesLeft = Math.floor(this.workLeft / 60);
+            this.secondsLeft = this.workLeft % 60;
+            this.workLeft--;
           } else {
-            //? kad je pauza istekla
-            clearInterval(this.pauseInterval);
+            //* pause timer
+            this.workLeft = 0;
+            this.minutesLeft = 0;
+            this.secondsLeft = 0;
+            clearInterval(this.workInterval);
           }
         }, 1000);
+        //  resolve();
+      }, this.workLeft);
+      // resolve();
+    });
+    // console.log("work is finished");
+  }
+
+  async startPause() {
+    this.pauseInterval = setInterval(() => {
+      this.mode = "pause";
+      if (this.pauseLeft > 0) {
+        this.minutesLeft = Math.floor(this.pauseLeft / 60);
+        this.secondsLeft = this.pauseLeft % 60;
+        this.pauseLeft--;
+      } else {
+        //? kad je pauza istekla
+        this.pauseLeft = 0;
+        this.minutesLeft = 0;
+        this.secondsLeft = 0;
+        clearInterval(this.pauseInterval);
       }
     }, 1000);
   }
-
+*/
   onPause() {
     clearInterval(this.workInterval);
   }
