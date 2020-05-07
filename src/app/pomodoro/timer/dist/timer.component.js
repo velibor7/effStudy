@@ -16,14 +16,16 @@ var TimerComponent = /** @class */ (function () {
     }
     TimerComponent.prototype.ngOnInit = function () { };
     TimerComponent.prototype.set25 = function () {
-        // this.workLeft = 25 * 60;
+        this.workLeft = 1500; // 25 * 60 seconds
         this.minutesLeft = 25;
-        this.workLeft = 5;
+        this.secondsLeft = 0;
+        // this.workLeft = 5;
     };
     TimerComponent.prototype.set50 = function () {
-        // this.workLeft = 50 * 60;
+        this.workLeft = 3000; // 50 * 60
         this.minutesLeft = 50;
-        this.workLeft = 10;
+        this.secondsLeft = 0;
+        // this.workLeft = 10;
     };
     TimerComponent.prototype.onStart = function () {
         var _this = this;
